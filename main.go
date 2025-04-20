@@ -20,12 +20,15 @@ type ClaimsPage struct {
 
 var (
 	// Replace these with your Cognito app client ID and secret
-	clientID     = "your_client_id"
+	// You can find these in the AWS Cognito console under "App clients"
+	clientID     = "<your-client-id>"
 	clientSecret = ""
 	redirectURL  = "http://localhost:8080/callback"
-	// Replace {region} and {user_pool_id} with your AWS Cognito region and user pool ID
-	// For example: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789"
-	issuerURL    = "https://cognito-idp.{region}.amazonaws.com/{user_pool_id}"
+	// Cognito OIDC issuer URL
+	// Replace with your Cognito User Pool ID
+	// Example: https://cognito-idp.<region>.amazonaws.com/<user-pool-id>
+	// Example: https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_CbuJAiqrs
+	issuerURL    = "https://cognito-idp.<region>.amazonaws.com/<user-pool-id>"
 	provider     *oidc.Provider
 	oauth2Config oauth2.Config
 )
